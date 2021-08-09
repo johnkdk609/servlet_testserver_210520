@@ -7,9 +7,10 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 
-//@WebFilter("/*")	// 어떤 주소를 타고 들어왔을 때 필터를 태울 것이냐를 설정하는 것. 주소 맵핑.
-public class CharacterEncodingFilter implements Filter {
+@WebFilter("/servlet/ex05_post_practice")
+public class CharacterEncodingFilterPractice implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -19,11 +20,8 @@ public class CharacterEncodingFilter implements Filter {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		System.out.println("########## 필터 통과");
+		System.out.println("######## 필터 통과");
 		
 		chain.doFilter(request, response);
-		
-		
 	}
-
 }
